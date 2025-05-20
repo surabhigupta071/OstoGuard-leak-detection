@@ -16,9 +16,10 @@ class OstoGuard:
 
     def simulate_sensor_data(self):
         """Simulate sensor readings with some variability"""
-        pressure = random.uniform(0.3, 1.2)
-        moisture = random.uniform(0.1, 1.0)
-        chemical = random.uniform(0.0, 0.8)
+        pressure = round(random.uniform(0.5, 2.0), 2)
+        moisture = round(random.uniform(0.5, 1.5), 2)
+        chemical = round(random.uniform(0.5, 1.5), 2)
+
         return [pressure, moisture, chemical]
 
     def predict_leak(self, sensor_data):
