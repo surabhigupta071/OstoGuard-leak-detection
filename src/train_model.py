@@ -31,7 +31,7 @@ model = LogisticRegression()
 model.fit(X_train, y_train)
 
 # Save model
-joblib.dump(model, 'src/leak_model.pkl')
+joblib.dump(model, 'leak_model.pkl')
 
 # Evaluate
 y_pred = model.predict(X_test)

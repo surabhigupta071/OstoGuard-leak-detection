@@ -3,11 +3,12 @@ import time
 import csv
 import joblib
 import argparse
+import pandas as pd  # add this import
 
-model = joblib.load('src/leak_model.pkl')
+model = joblib.load('leak_model.pkl')
 
 def get_prediction(pressure, moisture, chemical):
-    features = [[pressure, moisture, chemical]]
+    features = pd.DataFrame([[pressure, moisture, chemical]], columns=['pressure', 'moisture', 'chemical'])
     prediction = model.predict(features)[0]
     probability = model.predict_proba(features)[0][1]
     return prediction, probability
@@ -38,5 +39,3 @@ if __name__ == "__main__":
     args = parser.parse_args()
     
     run_simulation(n_readings=args.num_readings, delay=args.delay)
-
-
